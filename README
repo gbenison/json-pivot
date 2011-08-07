@@ -6,9 +6,17 @@ while preserving the relationships contained in the JSON input.  Can be
 used to easily extract certain elements from deep within a JSON structure
 without having to understand that JSON structure.
 
-Dependencies: a guile json parser, such as the one found here:
-git://github.com/ihh/guile-json.git
-
 This project is the result of API Hack day in Portland, Oregon,
 in July 2011.  The concept is described more fully here:
 http://gcbenison.wordpress.com/2011/08/02/api-discovery-with-scheme
+
+Dependencies: a guile json parser, such as the one found here:
+git://github.com/ihh/guile-json.git
+
+Example usage:
+
+(use-modules (json-pivot))
+(json:pivot (node:key? "votes")
+	    (current-input-port)
+	    (current-output-port))
+
